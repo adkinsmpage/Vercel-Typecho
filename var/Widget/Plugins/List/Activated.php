@@ -8,7 +8,7 @@
  */
 
 /**
- * 异常处理组件
+ * 启用插件列表组件
  *
  * @author qining
  * @category typecho
@@ -16,18 +16,17 @@
  * @copyright Copyright (c) 2008 Typecho team (http://www.typecho.org)
  * @license GNU General Public License 2.0
  */
-class Widget_ExceptionHandle extends Widget_Archive
+class Widget_Plugins_List_Activated extends Widget_Plugins_List
 {
     /**
-     * 重载构造函数
+     * 执行函数
      *
      * @access public
-     * @param Exception $excepiton 抛出的异常
      * @return void
      */
-    public function __construct()
+    public function execute()
     {
-        $this->widget('Widget_Archive@404', 'type=404')->render();
-        exit;
+        $this->parameter->activated = true;
+        parent::execute();
     }
 }
